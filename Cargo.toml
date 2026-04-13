@@ -1,0 +1,20 @@
+[package]
+name = "av-api"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Shared audio ingest and orchestration helpers for Wavey API services"
+repository = "https://github.com/wavey-ai/av-api"
+
+[dependencies]
+anyhow = "1.0"
+bytes = "1.10"
+http = "1"
+soundkit = { git = "https://github.com/wavey-ai/soundkit.git", rev = "343e02218d9c7beda86807f178f5388e3f8d4887", package = "soundkit" }
+soundkit-decoder = { git = "https://github.com/wavey-ai/soundkit.git", rev = "343e02218d9c7beda86807f178f5388e3f8d4887", package = "soundkit-decoder" }
+upload-response = { git = "https://github.com/wavey-ai/web-services.git", package = "upload-response", rev = "065ccab2d5f4a61ccc0bf7b3e3d32da2759828f4" }
+
+[dev-dependencies]
+frame-header = "0.2.0"
+http-pack = { git = "https://github.com/wavey-ai/http-pack.git", default-features = false }
+tokio = { version = "1.45", features = ["macros", "rt-multi-thread"] }
