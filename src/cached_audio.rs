@@ -151,7 +151,9 @@ pub fn apply_cached_pcm_descriptor_headers(
     Ok(())
 }
 
-pub fn cached_pcm_descriptor_from_headers(headers: &HeaderMap) -> Result<CachedPcmDescriptor, String> {
+pub fn cached_pcm_descriptor_from_headers(
+    headers: &HeaderMap,
+) -> Result<CachedPcmDescriptor, String> {
     let format = headers
         .get(PCM_FORMAT_HEADER)
         .and_then(|value| value.to_str().ok())

@@ -25,13 +25,16 @@ pub struct PreparedAudioProgram {
     pub total_gap_seconds: f64,
 }
 
-pub fn prepare_audio_program(files: &[UploadedAudioFile], gap_seconds: f64) -> Result<PreparedAudioProgram> {
+pub fn prepare_audio_program(
+    files: &[UploadedAudioFile],
+    gap_seconds: f64,
+) -> Result<PreparedAudioProgram> {
     if files.is_empty() {
         bail!("request did not include any audio file");
     }
 
     let gap_seconds = gap_seconds.max(0.0);
-    let gap_frames = ((gap_seconds * PROGRAM_SAMPLE_RATE as f64).round() as usize).max(0);
+    let gap_frames = (gap_seconds * PROGRAM_SAMPLE_RATE as f64).round() as usize;
     let bytes_per_frame = (PROGRAM_CHANNELS as usize) * (PROGRAM_BITS_PER_SAMPLE as usize / 8);
     let gap_bytes = vec![0u8; gap_frames * bytes_per_frame];
 
@@ -109,7 +112,12 @@ fn decode_audio_file(file: &UploadedAudioFile) -> Result<Vec<AudioData>> {
     Ok(decoded)
 }
 
-fn pcm_duration_seconds(bytes_len: usize, sample_rate: u32, channels: u8, bits_per_sample: u8) -> f64 {
+fn pcm_duration_seconds(
+    bytes_len: usize,
+    sample_rate: u32,
+    channels: u8,
+    bits_per_sample: u8,
+) -> f64 {
     let bytes_per_frame = (channels as usize) * (bits_per_sample as usize / 8);
     if bytes_per_frame == 0 || sample_rate == 0 {
         return 0.0;
@@ -126,7 +134,9 @@ mod tests {
     fn stereo_wav(samples: &[i16]) -> Bytes {
         let left = samples.to_vec();
         let right = samples.to_vec();
-        Bytes::from(generate_wav_buffer(&PcmData::I16(vec![left, right]), PROGRAM_SAMPLE_RATE).unwrap())
+        Bytes::from(
+            generate_wav_buffer(&PcmData::I16(vec![left, right]), PROGRAM_SAMPLE_RATE).unwrap(),
+        )
     }
 
     #[test]

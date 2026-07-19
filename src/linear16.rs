@@ -6,7 +6,11 @@ pub struct Linear16PcmStream {
 }
 
 impl Linear16PcmStream {
-    pub fn new(input_sample_rate: u32, output_sample_rate: u32, channels: u8) -> Result<Self, String> {
+    pub fn new(
+        input_sample_rate: u32,
+        output_sample_rate: u32,
+        channels: u8,
+    ) -> Result<Self, String> {
         if input_sample_rate == 0 {
             return Err("sample_rate must be greater than 0".into());
         }

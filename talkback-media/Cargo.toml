@@ -1,0 +1,9 @@
+[package]
+name = "talkback-media"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Typed ephemeral talkback media contract for Infidelity relay paths"
+
+[dependencies]
+bytes = "1.10"
