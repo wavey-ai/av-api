@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 description = "Typed ephemeral talkback media contract for Infidelity relay paths"
+repository = "https://github.com/wavey-ai/av-api"
 
 [dependencies]
 bytes = "1.10"
