@@ -10,8 +10,8 @@ repository = "https://github.com/wavey-ai/av-api"
 anyhow = "1.0"
 bytes = "1.10"
 http = "1"
-soundkit = { git = "https://github.com/wavey-ai/soundkit.git", rev = "343e02218d9c7beda86807f178f5388e3f8d4887", package = "soundkit" }
-soundkit-decoder = { git = "https://github.com/wavey-ai/soundkit.git", rev = "343e02218d9c7beda86807f178f5388e3f8d4887", package = "soundkit-decoder" }
+soundkit = { git = "https://github.com/wavey-ai/soundkit.git", branch = "main", package = "soundkit" }
+soundkit-decoder = { git = "https://github.com/wavey-ai/soundkit.git", branch = "main", package = "soundkit-decoder" }
 talkback-media = { path = "talkback-media" }
 upload-response = { git = "https://github.com/wavey-ai/web-services.git", rev = "b7a7359668651daa481622b7d17acee372591edb", package = "upload-response" }
 
