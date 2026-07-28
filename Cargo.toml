@@ -13,7 +13,7 @@ http = "1"
 soundkit = { git = "https://github.com/wavey-ai/soundkit.git", branch = "main", package = "soundkit" }
 soundkit-decoder = { git = "https://github.com/wavey-ai/soundkit.git", branch = "main", package = "soundkit-decoder" }
 talkback-media = { path = "talkback-media" }
-upload-response = { git = "https://github.com/wavey-ai/web-services.git", rev = "b7a7359668651daa481622b7d17acee372591edb", package = "upload-response" }
+upload-response = { git = "https://github.com/wavey-ai/web-services.git", branch = "main", package = "av-upload-response" }
 
 [dev-dependencies]
 frame-header = "0.2.0"
